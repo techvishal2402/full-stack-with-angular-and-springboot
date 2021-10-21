@@ -1,4 +1,18 @@
+<small *ngIf='invalidLogin'>'{{invalidLoginMessage}}'</small>
+<div>
 <p>
-    User Name <input type="text" name="username"/>
-    Password <input type="password" name="password"/>
+    User Name <input type="text" name="username" [(ngModel)]="username"/>
+    <!-- [(ngModel)]=username is called Banana in the box, 
+        ngModel is a part of FormsModule, 
+        so we need to import FormsModule in app.module file
+        mgModel is 2 way data bindings
+    -->
+    Password <input type="password" name="password" [(ngModel)]="password"/>
+
+    <!--Below is event binding-->
+    <button (click)=handleLogin()>Login</button>
+
+    UserName:{{username}}
+
 </p>
+</div>

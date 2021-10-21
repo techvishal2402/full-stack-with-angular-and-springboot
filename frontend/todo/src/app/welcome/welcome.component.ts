@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  name=''
+
+  constructor(private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+    console.log()
+    this.name=this.route.snapshot.params['name'];
+  }
+
+  backToLogin(){
+    console.log("Loggedout");
+    this.router.navigate(['login']);
   }
 
 }
